@@ -20,4 +20,12 @@ const httpCreateMovie = async (req, res) => {
   }
 };
 
-export { httpCreateMovie };
+const httpGetMovie = async (req, res) =>{
+
+  const movies = await Movie.find({}).sort({createdAt: -1});
+
+  return res.status(200).json(movies)
+
+}
+
+export { httpCreateMovie, httpGetMovie };
